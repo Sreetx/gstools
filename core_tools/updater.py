@@ -35,7 +35,7 @@ from rich import box
 def updates():
     #setiap pembaruan akan menambahkan fitur ini
 
-    print("[bold orange1] ~ [/bold orange1]Checking Update..."); time.sleep()
+    print("[bold orange1] ~ [/bold orange1]Checking Update..."); time.sleep(0.2)
 
     found = False
     version = ["v2.2.1-#Beta", "v2.2.0-#Beta", "v2.1.1-#Beta", "v2.1.0-#Beta", "v2.0.2-#Beta"]
