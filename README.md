@@ -1,2 +1,21 @@
 # GRUB Sreetx Tools
 GRUB SREETX TOOLS, a beginner-friendly grub configuration tool
+We made this for all of us. To make work easier, avoid mistakes, easy access to the system, and so on.
+you can use python3 main.py --easy-mode with or without sudo. very good for beginners!
+
+# Screenshot
+
+
+# Usage
+There are many easy parser commands that you can use and all of them are just use without thinking twice!
+
+Commands
+
+--easy-mode
+
+Enter the Easy Mode menu, which has a TUI-friendly interface based on input(). Just enter the numbers based on the available options. and boom, you're done.
+
+I don't need to explain the other commands because they are already in the script. Easy explanation with real function.
+
+
+Oh yeah, we also have a very easy to use bootable creation tool in this tool.
