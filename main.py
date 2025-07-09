@@ -441,6 +441,7 @@ if hh:
     bantuan()
 
 else:
+    os.system("cls || clear")
     banner()
     subscribe = input(borange+" > "+reset+merah+"Subscribe "+reset+"to my channel (y/n) ")
     if subscribe.lower() == 'y':
