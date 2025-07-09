@@ -65,35 +65,35 @@ def updates():
                     sans = requests.get("https://raw.githubusercontent.com/Sreetx/gstools/refs/heads/master/extras/sans.txt")
                     versiond = requests.get("https://raw.githubusercontent.com/Sreetx/gstools/refs/heads/master/extras/version.vers")
 
-                    print("[bold orange1] > [/bold orange1]Installing main")
+                    print("\n[bold orange1] > [/bold orange1]Installing main"); time.sleep(0.5)
                     with open ("main.py", 'wb') as a:
                         a.write(main.content)
 
-                    print("[bold orange1] > [/bold orange1]Installing warna/color")
+                    print("[bold orange1] > [/bold orange1]Installing warna/color"); time.sleep(0.5)
                     with open("color/warna.py", 'wb') as b:
                         b.write(color.content)
                     
-                    print("[bold orange1] > [/bold orange1]Installing core_tools/configures")
+                    print("[bold orange1] > [/bold orange1]Installing core_tools/configures"); time.sleep(0.5)
                     with open("core_tools/configures.py", 'wb') as c:
                         c.write(configures.content)
 
-                    print("[bold orange1] > [/bold orange1]Installing core_tools/easy_mode")
+                    print("[bold orange1] > [/bold orange1]Installing core_tools/easy_mode"); time.sleep(0.5)
                     with open("core_tools/easy_mode.py", 'wb') as d:
                         d.write(easy_mode.content)
 
-                    print("[bold orange1] > [/bold orange1]Installing core_tools/loading_bar")
+                    print("[bold orange1] > [/bold orange1]Installing core_tools/loading_bar"); time.sleep(0.5)
                     with open("core_tools/loading_bar.py", 'wb') as e:
                         e.write(loading_bar.content)
 
-                    print("[bold orange1] > [/bold orange1]Installing core_tools/os_prober")
+                    print("[bold orange1] > [/bold orange1]Installing core_tools/os_prober"); time.sleep(0.5)
                     with open("core_tools/os_prober.py", 'wb') as f:
                         f.write(os_prober.content)
                     
-                    print("[bold orange1] > [/bold orange1]Installing core_tools/tools_extra")
+                    print("[bold orange1] > [/bold orange1]Installing core_tools/tools_extra"); time.sleep(0.5)
                     with open("core_tools/tools_extra.py", 'wb') as g:
                         g.write(tools_extra.content)
 
-                    print("[bold orange1] > [/bold orange1]Installing Extras")
+                    print("[bold orange1] > [/bold orange1]Installing Extras"); time.sleep(0.5)
                     with open("extras/sans.txt", 'wb') as h:
                         h.write(sans.content)
                     with open("extras/grub_modules.txt", 'wb') as i:
@@ -101,7 +101,7 @@ def updates():
                     with open("extras/version.vers", 'wb') as j:
                         j.write(versiond.content)
                     
-                    print("[bold orange1] > [/bold orange1]Installing core_tools/updater")
+                    print("[bold orange1] > [/bold orange1]Installing core_tools/updater"); time.sleep(0.5)
                     with open("core_tools/updater.py", 'wb') as k:
                         k.write(updater.content)
                     
