@@ -92,6 +92,7 @@ def iso_detector(gagal=False):
     iso_files = []
     i = 1
     file_found_printed = False
+    global pilihan
 
     for root_dir in search_root:
         for root, dirs, files in os.walk(root_dir):
@@ -121,6 +122,8 @@ def iso_detector(gagal=False):
                     console.print(hasil_cari_iso)
                     i += 1
 
+                    pilihan = ""
+
     if not iso_files:
         console.print("\n[bold red] ! [/bold red]File Not Found in [#3ff568]/home[/#3ff568]")
         text = """[bright_black][[/bright_black][bold orange1]#[/bold orange1][bright_black]][/bright_black] Options:
@@ -131,7 +134,6 @@ def iso_detector(gagal=False):
         stop_event.set()
         loading_thread.join()
 
-        global pilihan
         pilihan = input(f" ({borange}>{reset}): ")
         if pilihan.lower() == "1":
             run_with_animation(lambda: iso_detector(gagal=True), f"{borange}~ {reset}Running an extended scan")
