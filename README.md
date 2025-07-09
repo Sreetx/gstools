@@ -14,8 +14,5 @@ Commands
 --easy-mode
 
 Enter the Easy Mode menu, which has a TUI-friendly interface based on input(). Just enter the numbers based on the available options. and boom, you're done.
-
 I don't need to explain the other commands because they are already in the script. Easy explanation with real function.
-
-
 Oh yeah, we also have a very easy to use bootable creation tool in this tool.
