@@ -37,7 +37,7 @@ def updates():
     print("[bold orange1] ~ [/bold orange1]Checking Update..."); time.sleep(0.2)
 
     found = False
-    version = ["v2.1.0-#Beta", "v2.2.1-#Beta", "v2.2.0-#Beta", "v2.1.1-#Beta"]
+    version = ["v2.2.1-#Beta", "v2.2.0-#Beta", "v2.1.1-#Beta", "v2.0.1-#Beta", "v2.0.2-#Beta"]
     for versin in version:
         encoded_version = versin.replace("#", "%23")
         url = f"https://raw.githubusercontent.com/Sreetx/gstools/refs/heads/master/extras/{encoded_version}"
@@ -45,8 +45,8 @@ def updates():
         try:
             response = requests.get(url)
             if response.status_code == 200:
-                print("[bold green] * [/bold green]Found Version: v2.2.0-#Beta"); time.sleep(1.4)
-                cs = input(f"Continue Update to v2.2.0-#Beta?")
+                print(f"[bold green] * [/bold green]Found Version: {versin}"); time.sleep(1.4)
+                cs = input(f"Continue Update to {versin} (y/n) ")
                 if cs.strip().lower() != "n":
                     #run update
                     print("[bold green] ~ [/bold green]Downloading Update...")
