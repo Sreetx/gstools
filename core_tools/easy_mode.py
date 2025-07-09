@@ -49,7 +49,7 @@ def easy_mode():
     tabel.add_row("[bright_black]([/bright_black][orange1]5[/orange1][bright_black])[/bright_black]", "Check all installed OS (also functions to automatically insert detected entries into grub if the system os-prober is turned off)")
     tabel.add_row("[bright_black]([/bright_black][orange1]6[/orange1][bright_black])[/bright_black]", "Install GRUB EFI")
     tabel.add_row("[bright_black]([/bright_black][orange1]7[/orange1][bright_black])[/bright_black]", "Install GRUB EFI (portable)")
-    tabel.add_row("[bright_black]([/bright_black][orange1]8/orange1][bright_black])[/bright_black]", "Preview GRUB ENTRY")
+    tabel.add_row("[bright_black]([/bright_black][orange1]8[/orange1][bright_black])[/bright_black]", "Preview GRUB ENTRY")
     tabel.add_row("[bright_black]([/bright_black][orange1]9[/orange1][bright_black])[/bright_black]", "Change default prefix")
     tabel.add_row("\n[bold orange1]ADD-ON[/bold orange1]")
     tabel.add_row("[bright_black]([/bright_black][orange1]10[/orange1][bright_black])[/bright_black]", "Create a Bootable disk !")
