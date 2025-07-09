@@ -66,43 +66,43 @@ def updates():
                     versiond = requests.get("https://raw.githubusercontent.com/Sreetx/gstools/refs/heads/master/extras/version.vers")
 
                     print("[bold orange1] > [/bold orange1]Installing main")
-                    with open ("main.py", 'w') as a:
+                    with open ("main.py", 'wb') as a:
                         a.write(main.content)
 
                     print("[bold orange1] > [/bold orange1]Installing warna/color")
-                    with open("color/warna.py", 'w') as b:
+                    with open("color/warna.py", 'wb') as b:
                         b.write(color.content)
                     
                     print("[bold orange1] > [/bold orange1]Installing core_tools/configures")
-                    with open("core_tools/configures.py", 'w') as c:
+                    with open("core_tools/configures.py", 'wb') as c:
                         c.write(configures.content)
 
                     print("[bold orange1] > [/bold orange1]Installing core_tools/easy_mode")
-                    with open("core_tools/easy_mode.py", 'w') as d:
+                    with open("core_tools/easy_mode.py", 'wb') as d:
                         d.write(easy_mode.content)
 
                     print("[bold orange1] > [/bold orange1]Installing core_tools/loading_bar")
-                    with open("core_tools/loading_bar.py", 'w') as e:
+                    with open("core_tools/loading_bar.py", 'wb') as e:
                         e.write(loading_bar.content)
 
                     print("[bold orange1] > [/bold orange1]Installing core_tools/os_prober")
-                    with open("core_tools/os_prober.py", 'w') as f:
+                    with open("core_tools/os_prober.py", 'wb') as f:
                         f.write(os_prober.content)
                     
                     print("[bold orange1] > [/bold orange1]Installing core_tools/tools_extra")
-                    with open("core_tools/tools_extra.py", 'w') as g:
+                    with open("core_tools/tools_extra.py", 'wb') as g:
                         g.write(tools_extra.content)
 
                     print("[bold orange1] > [/bold orange1]Installing Extras")
-                    with open("extras/sans.txt", 'w') as h:
+                    with open("extras/sans.txt", 'wb') as h:
                         h.write(sans.content)
-                    with open("extras/grub_modules.txt", 'w') as i:
+                    with open("extras/grub_modules.txt", 'wb') as i:
                         i.write(grub_modules.content)
-                    with open("extras/version.vers", 'w') as j:
+                    with open("extras/version.vers", 'wb') as j:
                         j.write(versiond.content)
                     
                     print("[bold orange1] > [/bold orange1]Installing core_tools/updater")
-                    with open("core_tools/updater.py", 'w') as k:
+                    with open("core_tools/updater.py", 'wb') as k:
                         k.write(updater.content)
                     
                     print("\n[bold green] # [/bold green] Done")
