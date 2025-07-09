@@ -376,12 +376,6 @@ if easy_mode:
         os.system("cls || clear")
 
     banner()
-    def root_id():
-        return os.getuid() == 0
-    if root_id():
-        pass
-    else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
     try:
         from core_tools.easy_mode import easy_mode
         easy_mode()
