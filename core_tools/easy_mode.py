@@ -87,7 +87,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.configures import update_grub_config
             update_grub_config(reconf=True)
@@ -105,7 +105,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-           print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+           print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.configures import change_etc_default_grub
             change_etc_default_grub()
@@ -123,7 +123,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.os_prober import check_os
             check_os()
@@ -141,7 +141,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.os_prober import os_prober
             check_os()
@@ -159,7 +159,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.configures import install_grub_efi
             install_grub_efi()
@@ -177,7 +177,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.configures import install_grub_portable
             install_grub_portable()
@@ -195,7 +195,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.configures import preview_grub_entry
             preview_grub_entry()
@@ -213,7 +213,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.configures import set_prefix
             set_prefix()
@@ -231,7 +231,7 @@ def easy_mode():
         if root_id():
             pass
         else:
-            print("\n[bold red] ! [/bold red] Please run this script with SUDO/SU");sys.exit()
+            print("\n[bold red] ! [/bold red]Please run this script with SUDO/SU");sys.exit()
         try:
             from core_tools.tools_extra import burner_iso
             burner_iso()
