@@ -11,9 +11,12 @@ There are many easy parser commands that you can use and all of them are just us
 
 Commands
 
-python3 main.py --easy-mode    <== Easy Mode
 
-python3 main.py --hh    <== The command to display help and all information about commands and features is here.
+    python3 main.py --easy-mode    <== Easy Mode
+
+
+    python3 main.py --hh    <== The command to display help and all information about commands and features is here.
+
 
 Enter the Easy Mode menu, which has a TUI-friendly interface based on input(). Just enter the numbers based on the available options. and boom, you're done.
 
