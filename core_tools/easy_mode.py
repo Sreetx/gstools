@@ -61,6 +61,7 @@ def easy_mode():
     easy = input(f"{borange} => {reset}")
 
     #Update GRUB
+    os.system("cls || clear")
     if easy.lower() == "1":
         banner()
         def root_id():
