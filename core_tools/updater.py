@@ -22,6 +22,7 @@ import os, time, sys, requests
 from color.warna import borange
 from color.warna import reset
 from color.warna import banner
+from color.warna import bhijau
 
 from rich import print
 from rich.live import Live
@@ -46,7 +47,7 @@ def updates():
             response = requests.get(url)
             if response.status_code == 200:
                 print(f"[bold green] * [/bold green]Found Version: {versin}"); time.sleep(1.3)
-                cs = input(f"[bold green] ? [/bold green]Continue Update to {versin} (y/n) ")
+                cs = input(f"{bhijau} ? {reset}Continue Update to {versin} (y/n) ")
                 if cs.strip().lower() != "n":
                     #run update
                     print("[bold green] ~ [/bold green]Downloading Update...")
