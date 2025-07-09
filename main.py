@@ -165,11 +165,11 @@ if detect_os:
         if root_id():
             pass
         else:
-            print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+            print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
         os_prober()
         exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] OS Prober (core_tools/os_prober.py > os_prober) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"OS Prober (core_tools/os_prober.py > os_prober) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -185,13 +185,13 @@ if check_os:
     if root_id():
         pass
     else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
     try:
         from core_tools.os_prober import check_os
         check_os()
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] OS information Finder (core_tools/os_prober > check_os) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"OS information Finder (core_tools/os_prober > check_os) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -209,10 +209,10 @@ if prefix:
         if root_id():
             pass
         else:
-            print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+            print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
         set_prefix()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] Set Prefix (core_tools/configures.py > set_prefix) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"Set Prefix (core_tools/configures.py > set_prefix) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -230,11 +230,11 @@ if pranks:
         if user_uid():
             pass
         else:
-            print(putih+"\n ["+merah+"!"+putih+"] using experimental secret features with sudo is dangerous!")
-            print(putih+" ["+merah+"*"+putih+"] But this feature can still make changes to your system!");sys.exit()
+            print(bmerah+" ! "+reset+"using experimental secret features with sudo is dangerous!")
+            print(bmerah+" * "+reset+"But this feature can still make changes to your system!");sys.exit()
         just_prank()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] Secreet Tools (core_tools/configures.py > ester_egg) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"Secreet Tools (core_tools/configures.py > ester_egg) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -251,11 +251,11 @@ if iso_burner:
         if root_id():
             pass
         else:
-            print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+            print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
         from core_tools.tools_extra import burner_iso
         burner_iso()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] ISO Burner (core_tools/tools_extra.py > burner_iso) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"ISO Burner (core_tools/tools_extra.py > burner_iso) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -271,13 +271,13 @@ if install_grubs:
     if root_id():
         pass
     else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
     try:
         from core_tools.configures import install_grub_efi
         install_grub_efi()
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] Install GRUB EFI (core_tools/configures > install_grub_efi) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"Install GRUB EFI (core_tools/configures > install_grub_efi) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -293,13 +293,13 @@ if update_grubs:
     if root_id():
         pass
     else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
     try:
         from core_tools.configures import update_grub_config
         update_grub_config(reconf=reconf)
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] GRUB Config Updater (core_tools/configures > update_grub_config) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"GRUB Config Updater (core_tools/configures > update_grub_config) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -315,13 +315,13 @@ if reconf:
     if root_id():
         pass
     else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
     try:
         from core_tools.configures import update_grub_config
         update_grub_config(reconf=True)
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] GRUB Config Updater (core_tools/configures > update_grub_config) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"GRUB Config Updater (core_tools/configures > update_grub_config) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -337,13 +337,13 @@ if portable:
     if root_id():
         pass
     else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
     try:
         from core_tools.configures import install_grub_portable
         install_grub_portable()
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] GRUB EFI Portable Installer (core_tools/configures > install_grub_portable) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"GRUB EFI Portable Installer (core_tools/configures > install_grub_portable) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -359,13 +359,13 @@ if configs:
     if root_id():
         pass
     else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU");sys.exit()
     try:
         from core_tools.configures import change_etc_default_grub
         change_etc_default_grub()
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] GRUB default variabel config editor (core_tools/configures > change_etc_default_grub) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"GRUB default variabel config editor (core_tools/configures > change_etc_default_grub) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -381,7 +381,7 @@ if easy_mode:
         easy_mode()
         sys.exit()
     except ImportError:
-        print(f" [{merah}!{putih}] Easy Mode(core_tools/easy_mode > easy_mode) Not found!"); sys.exit()
+        print(f"{merah} ! {putih}Easy Mode(core_tools/easy_mode > easy_mode) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -397,13 +397,13 @@ if preven:
     if root_id():
         pass
     else:
-        print(putih+"\n ["+merah+"!"+putih+"] Please run this script with SUDO/SU"+reset);sys.exit()
+        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU");sys.exit()
     try:
         from core_tools.configures import preview_grub_entry
         preview_grub_entry()
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] GRUB Entry Preview (core_tools/configures > preview_grub_entry) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"GRUB Entry Preview (core_tools/configures > preview_grub_entry) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
@@ -427,7 +427,7 @@ if updates:
         updates()
         sys.exit()
     except ImportError:
-        print(putih+" ["+merah+"!"+putih+"] Secreet Tools (core_tools/updater > updates) Not found!"); sys.exit()
+        print(bmerah+" ! "+reset+"Secreet Tools (core_tools/updater > updates) Not found!"); sys.exit()
     except KeyboardInterrupt:
         print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
 
