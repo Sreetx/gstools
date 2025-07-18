@@ -188,9 +188,9 @@ def check_os():
             initrd = glob.glob("/boot/*initramfs*")
             if not initrd:
                 initrd = glob.glob("/boot/*initrfs*")
-        print("[bold orange1] > [/bold orange1]Kernel Found: \n[blue]=>[/blue] [orange1]" + f"[blue]\n=>[/blue] [orange1]".join(kernel)+"[/orange1][/orange1]"); time.sleep(0.3)
+        print("[bold orange1] > [/bold orange1]Kernel Found: \n[blue]=>[/blue] [orange1]" + f"[blue]\n=>[/blue] [orange1]".join(kernel)+"[/orange1]"); time.sleep(0.3)
         print('')
-        print("[bold orange1] > [/bold orange1]Initramfs Found: \n[blue]=>[/blue] [orange1]" + f"[blue]\n=>[/blue] [orange1]".join(initrd)+"[/orange1][/orange1]"); time.sleep(0.3)
+        print("[bold orange1] > [/bold orange1]Initramfs Found: \n[blue]=>[/blue] [orange1]" + f"[blue]\n=>[/blue] [orange1]".join(initrd)+"[/orange1]"); time.sleep(0.3)
 
         print ("\n[bold green] > [/bold green]GRUB Version: [orange1]"+grub_version+"[/orange1] [bright_black]([/bright_black][#3ff568]"+os_id+"[/#3ff568][bright_black])[/bright_black]"); time.sleep(0.5)
         print ("[bold green] > [/bold green]GRUB EFI Path: [#3ff568]"+path+"[/#3ff568]"); time.sleep(0.5)
