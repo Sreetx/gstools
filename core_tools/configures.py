@@ -490,9 +490,16 @@ def just_prank():
             with open(sans+jam+".txt".strip(), 'w', encoding='utf-8') as hasil:
                 hasil.write(f"{logo_jokes}\n{jokes1}\n{jokes2}")
             print("\n[bright_black][[/bright_black][bold green]*[/bold green][bright_black]][/bright_black] Log saved on [#3ff568]"+sans+jam+".txt[/#3ff568]"); time.sleep(2)
-            sys.exit()
+            
         except KeyboardInterrupt:
             continue
+        tanya = input(f"{bhijau} * {reset}View Logs? (y/n) ")
+        if tanya.lower() != "n":
+            with open(sans+jam+".txt".strip(), 'r') as h:
+                d = h.read()
+                print(d)
+                exit()
+
 
 def change_etc_default_grub():
     #TUI
