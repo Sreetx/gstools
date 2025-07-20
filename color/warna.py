@@ -17,6 +17,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+import os, sys, time
 if sys.platform in ["linux", "linux2", "win32", "win64"]:
     orange = "\033[93m"
     putih = "\033[39m"
@@ -52,7 +53,6 @@ else:
     reset = ""
 
 try:
-    import sys, os
     from rich.console import Console
     from rich.table import Table
     from rich.panel import Panel
