@@ -59,6 +59,7 @@ try:
     from rich.table import Table
     from rich.panel import Panel
     from rich.text import Text
+    import requests
 except ImportError:
     print(f'{bmerah} ! {reset}Please Install "python-rich" or "python3-rich"'); sys.exit()
 
