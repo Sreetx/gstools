@@ -17,8 +17,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-console = Console()
-
 if sys.platform in ["linux", "linux2", "win32", "win64"]:
     orange = "\033[93m"
     putih = "\033[39m"
@@ -61,7 +59,9 @@ try:
     from rich.text import Text
     import requests
 except ImportError:
-    print(f'{bmerah} ! {reset}Please Install "python-rich" or "python3-rich"'); sys.exit()
+    print(f'{bmerah} ! {reset}Please Install "python-rich" or "python3-rich" and "python-requests" or "python3-requests"'); sys.exit()
+
+console = Console()
 
 def banner():
     ss = os.path.join('color', 'tux-colored.txt')
