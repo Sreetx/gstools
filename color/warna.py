@@ -17,15 +17,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-try:
-    import sys, os
-    from rich.console import Console
-    from rich.table import Table
-    from rich.panel import Panel
-    from rich.text import Text
-except ImportError:
-
-
 console = Console()
 
 if sys.platform in ["linux", "linux2", "win32", "win64"]:
@@ -61,6 +52,15 @@ else:
     banhijau = ""
     banmerah = ""
     reset = ""
+
+try:
+    import sys, os
+    from rich.console import Console
+    from rich.table import Table
+    from rich.panel import Panel
+    from rich.text import Text
+except ImportError:
+    print(f'{bmerah} ! {reset}Please Install "python-rich" or "python3-rich"'); sys.exit()
 
 def banner():
     ss = os.path.join('color', 'tux-colored.txt')
