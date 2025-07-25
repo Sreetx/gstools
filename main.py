@@ -20,6 +20,15 @@
 import os, sys, time, threading, subprocess, glob, webbrowser
 from argparse import ArgumentParser
 
+try:
+    from rich.console import Console
+    from rich.table import Table
+    from rich.panel import Panel
+    from rich.text import Text
+    import requests
+except ImportError:
+    print(' (!) Please Install "python-rich" or "python3-rich" and "python-requests" or "python3-requests"'); sys.exit()
+
 stop_event = threading.Event()
 def loading_animation(teks):
     i = 0
@@ -67,7 +76,7 @@ def import_module():
         from color.warna import banmerah
         from color.warna import reset
     except ImportError:
-        print(" [*] ImportError, Pelase reinstall this script from Github!");sys.exit()
+        print(" (*) ImportError, Pelase reinstall this script from Github!");sys.exit()
 
 def run_with_animation(func, teks):
     loading_thread = threading.Thread(target=loading_animation, args=(teks,))
