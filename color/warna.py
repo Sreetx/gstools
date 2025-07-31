@@ -64,9 +64,6 @@ except ImportError:
 console = Console()
 
 def banner():
-    ss = os.path.join('color', 'tux-colored.txt')
-    with open (ss, 'r', encoding='utf-8') as logo:
-        logg = logo.read()
     version = os.path.join('extras', 'version.vers')
     with open (version, 'r') as versi:
         vers = versi.read()
