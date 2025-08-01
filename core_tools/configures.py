@@ -87,36 +87,39 @@ def detect_grub_online():
                 efi_path = mp
                 break
         else:
-            print(f"{bmerah}!{reset}{putih} ESP path not found"); sys.exit()
+            efi_path = "Unkwown"
 
-        results = subprocess.run(["efibootmgr", "-v"], stdout=subprocess.PIPE, text=True)
-        output = results.stdout
-        current_boot = re.search(r'BootCurrent:\s*(\w+)', output)
-        if not current_boot:
-            return None
-        current_id = current_boot.group(1)
+        if efi_path == "Unkwown":
+            return "Unknown"
+        else:
+            results = subprocess.run(["efibootmgr", "-v"], stdout=subprocess.PIPE, text=True)
+            output = results.stdout
+            current_boot = re.search(r'BootCurrent:\s*(\w+)', output)
+            if not current_boot:
+                return None
+            current_id = current_boot.group(1)
 
-        boot_line = None
-        for line in output.splitlines():
-            if line.startswith(f"Boot{current_id}"):
-                boot_line = line
-                break
-        if not boot_line:
-            return None
-
-        file_path_match = re.search(r'/\\(EFI\\.*?grubx64\.efi)', boot_line, re.IGNORECASE)
-        if not file_path_match:
-            file_path_match = re.search(r'/\\(EFI\\.*?shimx64\.efi)', boot_line, re.IGNORECASE)
-            if not file_path_match:
-                print("[bold red]![/bold red] EFI File path not found in efibootmgr entry")
+            boot_line = None
+            for line in output.splitlines():
+                if line.startswith(f"Boot{current_id}"):
+                    boot_line = line
+                    break
+            if not boot_line:
                 return None
 
-        file_path = file_path_match.group(1).replace('\\', '/')
-        folder_path = os.path.dirname(file_path)
+            file_path_match = re.search(r'/\\(EFI\\.*?grubx64\.efi)', boot_line, re.IGNORECASE)
+            if not file_path_match:
+                file_path_match = re.search(r'/\\(EFI\\.*?shimx64\.efi)', boot_line, re.IGNORECASE)
+                if not file_path_match:
+                    print("[bold red]![/bold red] EFI File path not found in efibootmgr entry")
+                    return None
 
-        path = os.path.join(efi_path, folder_path.lstrip('/'))
-        os.makedirs(path, exist_ok=True)
-        return path
+            file_path = file_path_match.group(1).replace('\\', '/')
+            folder_path = os.path.dirname(file_path)
+
+            path = os.path.join(efi_path, folder_path.lstrip('/'))
+            os.makedirs(path, exist_ok=True)
+            return path
     except KeyboardInterrupt:
         return None
 path = detect_grub_online()

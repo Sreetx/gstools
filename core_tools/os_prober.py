@@ -78,7 +78,7 @@ def esp_part_checker():
                                 size=size,
                                 uuid_efi=uuid_efi,
                             )
-            return None
+            return "Unknown"
         esp_info = find_esp(devices)
         if esp_info:
             return esp_info
@@ -118,34 +118,69 @@ def check_grub_prefix():
         from core_tools.configures import path
     except ImportError:
         print("[bold red]![/bold red] Detect GRUB Installed path [bright_black]([/bright_black][green]core_tools/configures.py[/green] [orange1]>[/orange1] [bold green]path[/bold green][bright_black])[/bright_black] Not found!")
-    if not path:
-        path = ''
-    prefix_awal = path.strip()
-    prefix_nanti = os.path.join(prefix_awal, "grub.cfg")
-    try:
-        if not os.path.exists(prefix_awal):
-            print(f"\n [bold red![/bold red] File prefix_awal is missing or ESP partition not mounted! Create prefix with [bold white]--set-prefix[/bold white]"); sys.exit()
-        with open (prefix_nanti) as prefix_nya:
-        # Prefix
-            for f in prefix_nya:
-                if f.startswith("set prefix=($root)"):
-                    prefix1 = f.split("($root)")[1].strip().strip("'").strip()
-                    break
-            for f in prefix_nya:
-                if f.startswith('configfile $prefix'):
-                    prefix2 = f.split("$prefix")[1].strip().strip()
-                    break
-            prefix_final = prefix1+prefix2
+    if path == '':
+        return "Unknown"
+    else:
+        prefix_awal = path.strip()
+        prefix_nanti = os.path.join(prefix_awal, "grub.cfg")
+        try:
+            if not os.path.exists(prefix_awal):
+                print(f"\n [bold red![/bold red] File prefix_awal is missing or ESP partition not mounted! Create prefix with [bold white]--set-prefix[/bold white]"); sys.exit()
+            with open (prefix_nanti) as prefix_nya:
+            # Prefix
+                for f in prefix_nya:
+                    if f.startswith("set prefix=($root)"):
+                        prefix1 = f.split("($root)")[1].strip().strip("'").strip()
+                        break
+                for f in prefix_nya:
+                    if f.startswith('configfile $prefix'):
+                        prefix2 = f.split("$prefix")[1].strip().strip()
+                        break
+                prefix_final = prefix1+prefix2
+                return prefix_final
+        except Exception:
+            prefix_final = "Detect Failed! default grub configuration (/boot/grub/grub.cfg)"
             return prefix_final
-    except Exception:
-        prefix_final = "Detect Failed! default grub configuration (/boot/grub/grub.cfg)"
-        return prefix_final
 
 prefix_final = check_grub_prefix()
 
+
+#pecahan
+def check_model():
+    try:
+        result = subprocess.run(['sudo', 'dmidecode', '-t', 'system'], capture_output=True, text=True, check=True)
+
+        lines = [line.strip() for line in result.stdout.split('\n') if line.strip()]
+        return lines
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to get system model: {e}")
+        return []
+
+def check_bios():
+    try:
+        result = subprocess.run(['sudo', 'dmidecode', '-t', 'bios'], capture_output=True, text=True, check=True)
+
+        lines = [line.strip() for line in result.stdout.split('\n') if line.strip()]
+        return lines
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to get bios model: {e}")
+        return []
+
+def cpu_model():
+    try:
+        with open ('/proc/cpuinfo', 'r') as f:
+            for line in f:
+                if "model name" in line:
+                    cpu = line.split(":")[1].strip()
+                    return cpu
+            return "Unknown CPU Model"
+    except FileNotFoundError:
+        print("[bold red] ! [/bold red]CPU info file not found!")
+
+#prime dev
 def check_os():
     print("[bold orange1] * [/bold orange1]Checking OS part ..."); time.sleep(1.3)
-    
+    print("[bold green] # [/bold green]OS Part ..."); time.sleep(0.5)
     try:
         # For Rolling OS
         if os.path.exists(os.path.join("/", "etc", "os-release")):
@@ -175,30 +210,61 @@ def check_os():
                         distro = d.split('=')[1].strip().strip('"')
                         print (f"[bold green] > [/bold green][orange1]Distro:[/orange1] {distro}"); time.sleep(0.5)
                         break
-
-        esp = esp_part_checker()
-        device = esp.device
-        flags = esp.flags
-        fstype = esp.fstype
-        mountpoint = esp.mountpoint
-        size = esp.size
-        uuid_efi = esp.uuid_efi
+        try:
+            esp = esp_part_checker()
+            device = esp.device
+            flags = esp.flags
+            fstype = esp.fstype
+            mountpoint = esp.mountpoint
+            size = esp.size
+            uuid_efi = esp.uuid_efi
+        except Exception:
+            device = "Unknown"
+            flags = "Unknown"
+            fstype = "Unknown"
+            mountpoint = "Unknown"
+            size = "Unknown"
+            uuid_efi = "Unknown"
+            
         kernel = glob.glob("/boot/*vmlinuz*")
         initrd = glob.glob("/boot/*initrd*")
+
+        if not flags:
+            flags = "Unknown"
         if not initrd:
             initrd = glob.glob("/boot/*initramfs*")
             if not initrd:
                 initrd = glob.glob("/boot/*initrfs*")
+            if not initrd:
+                initrd = "No Initramfs Found"
+        if not kernel:
+            kernel = "No Kernel Found"
         print("[bold orange1] > [/bold orange1]Kernel Found: \n[blue]=>[/blue] [orange1]" + f"[blue]\n=>[/blue] [orange1]".join(kernel)+"[/orange1]"); time.sleep(0.3)
         print('')
         print("[bold orange1] > [/bold orange1]Initramfs Found: \n[blue]=>[/blue] [orange1]" + f"[blue]\n=>[/blue] [orange1]".join(initrd)+"[/orange1]"); time.sleep(0.3)
 
-        print ("\n[bold green] > [/bold green]GRUB Version: [orange1]"+grub_version+"[/orange1] [bright_black]([/bright_black][#3ff568]"+os_id+"[/#3ff568][bright_black])[/bright_black]"); time.sleep(0.5)
+        print("\n[bold green] # [/bold green]GRUB Information ..."); time.sleep(0.5)
+        print ("[bold green] > [/bold green]GRUB Version: [orange1]"+grub_version+"[/orange1] [bright_black]([/bright_black][#3ff568]"+os_id+"[/#3ff568][bright_black])[/bright_black]"); time.sleep(0.5)
         print ("[bold green] > [/bold green]GRUB EFI Path: [#3ff568]"+path+"[/#3ff568]"); time.sleep(0.5)
         print ("[bold green] > [/bold green]GRUB configfile used: [orange1]"+str(prefix_final).strip()+"[/orange1]"); time.sleep(0.5)
-        print(f"[bold green] # [/bold green]EFI partition: [white]{device}[/white] [bright_black]([/bright_black][green]{mountpoint}[/green][bright_black])[/bright_black]"); time.sleep(0.5)
+        print(f"[bold green] * [/bold green]EFI partition: [white]{device}[/white] [bright_black]([/bright_black][green]{mountpoint}[/green][bright_black])[/bright_black]"); time.sleep(0.5)
         print(f"[bold green] * [/bold green]Size: [white]{size}[/white]"); time.sleep(0.5)
         print(f"[bold green] * [/bold green]UUID: [orange1]{uuid_efi}[/orange1]")
+        print(f"[bold green] * [/bold green]Flags: [orange1]{flags}[/orange1]"); time.sleep(0.5)
+
+        print("\n[bold green] # [/bold green]PC/System Model"); time.sleep(0.5)
+
+        for line in check_model():
+            if any(key in line for key in ["Manufacturer", "Product Name", "Version", "Serial Number", "UUID", "SKU Number", "Family"]):
+                print(f"[bold orange1] > [/bold orange1]{line}"); time.sleep(0.5)
+
+        print(f"[bold orange1] > [/bold orange1]CPU Information: {cpu_model()}"); time.sleep(0.5)
+
+        print("\n[bold green] # [/bold green]BIOS Information"); time.sleep(0.5)
+
+        for line in check_bios():
+            if any(key in line for key in ["Vendor", "Version", "Release Date", "Runtime Size", "ROM Size"]):
+                print(f"[bold orange1] > [/bold orange1]{line}"); time.sleep(0.5)
 
     except KeyboardInterrupt:
         print("\n[bold green]*[/bold green] Exit, have a nice day ...");sys.exit()
@@ -525,6 +591,8 @@ def uuid_root_checker():
         uuidc = ''.join(uuidc).strip()
         return uuidc
 uuid_roots = uuid_root_checker()
+
+
 
 
 
