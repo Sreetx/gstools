@@ -38,7 +38,7 @@ def updates():
     print("[bold orange1] ~ [/bold orange1]Checking Update..."); time.sleep(0.2)
 
     found = False
-    version = ["v2.2.6-#Beta", "v2.2.7#Beta", "v2.2.8-#Beta"]
+    version = ["v2.2.7-#Beta", "v2.2.8#Beta", "v2.2.9-#Beta"]
     for versin in version:
         encoded_version = versin.replace("#", "%23")
         url = f"https://raw.githubusercontent.com/Sreetx/gstools/refs/heads/master/extras/{encoded_version}"
