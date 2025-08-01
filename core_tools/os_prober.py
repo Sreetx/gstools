@@ -114,9 +114,10 @@ grub_version = detect_grub_version()
 
 def check_grub_prefix():
     try:
+        global path
         from core_tools.configures import path
     except ImportError:
-                print("[bold red]![/bold red] Detect GRUB Installed path [bright_black]([/bright_black][green]core_tools/configures.py[/green] [orange1]>[/orange1] [bold green]path[/bold green][bright_black])[/bright_black] Not found!")
+        print("[bold red]![/bold red] Detect GRUB Installed path [bright_black]([/bright_black][green]core_tools/configures.py[/green] [orange1]>[/orange1] [bold green]path[/bold green][bright_black])[/bright_black] Not found!")
     if not path:
         path = ''
     prefix_awal = path.strip()
@@ -145,10 +146,6 @@ prefix_final = check_grub_prefix()
 def check_os():
     print("[bold orange1] * [/bold orange1]Checking OS part ..."); time.sleep(1.3)
     
-    try:
-        from core_tools.configures import path
-    except ImportError:
-                print("[bold red]![/bold red] Detect GRUB Installed path [bright_black]([/bright_black][green]core_tools/configures.py[/green] [orange1]>[/orange1] [bold green]path[/bold green][bright_black])[/bright_black] Not found!")
     try:
         # For Rolling OS
         if os.path.exists(os.path.join("/", "etc", "os-release")):
