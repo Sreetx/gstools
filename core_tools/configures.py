@@ -503,7 +503,6 @@ def just_prank():
                 print(d)
                 exit()
 
-
 def change_etc_default_grub():
     #TUI
     print ("[bold orange1] * [/bold orange1]GRUB default variable editor")
@@ -543,8 +542,8 @@ def change_etc_default_grub():
             val = val.strip().strip('"')
             status = "[red]OFF[/red]" if is_commented else "[orange1]NOW[/orange1]"
             print(f"\n[bold white]({status}[bold white])[/bold white] {key} > [#3ff568]{val}[/#3ff568]")
-            baru = input(f"{kelabu}({borange}NEW{reset}{kelabu}){reset} > ").strip()
-
+            baru = ANSI(f"{kelabu}({borange}NEW{reset}{kelabu}){reset} > ")
+            baru = prompt(baru).strip()
             if baru == "":
                 changing_lines.append(ori_line)
             elif baru.lower() == "off":
