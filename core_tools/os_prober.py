@@ -119,7 +119,7 @@ def check_grub_prefix():
     except ImportError:
         print("[bold red]![/bold red] Detect GRUB Installed path [bright_black]([/bright_black][green]core_tools/configures.py[/green] [orange1]>[/orange1] [bold green]path[/bold green][bright_black])[/bright_black] Not found!")
     if not path or path == "Unknown":
-        return "Unknown"
+        path = "Unknown"
     else:
         prefix_awal = path.strip()
         prefix_nanti = os.path.join(prefix_awal, "grub.cfg")
