@@ -96,7 +96,7 @@ def detect_grub_online():
             output = results.stdout
             current_boot = re.search(r'BootCurrent:\s*(\w+)', output)
             if not current_boot:
-                return None
+                return ''
             current_id = current_boot.group(1)
 
             boot_line = None
