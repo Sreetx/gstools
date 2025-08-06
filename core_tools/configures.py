@@ -96,7 +96,7 @@ def detect_grub_online():
             output = results.stdout
             current_boot = re.search(r'BootCurrent:\s*(\w+)', output)
             if not current_boot:
-                return ''
+                return "unknown"
             current_id = current_boot.group(1)
 
             boot_line = None
@@ -105,7 +105,7 @@ def detect_grub_online():
                     boot_line = line
                     break
             if not boot_line:
-                return None
+                return "Unknown"
 
             file_path_match = re.search(r'/\\(EFI\\.*?grubx64\.efi)', boot_line, re.IGNORECASE)
             if not file_path_match:
