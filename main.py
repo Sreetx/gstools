@@ -27,7 +27,16 @@ try:
     from rich.text import Text
     import requests
 except ImportError:
-    print(' (!) Please Install "python-rich" or "python3-rich" and "python-requests" or "python3-requests"'); sys.exit()
+    try:
+        subprocess.run(["sudo", "apt", "install", "python3-rich", "python3-requests", "python3-prompt-toolkit", "-y"], check=True)
+    except subprocess.CalledProcessError:
+        try:
+            subprocess.run(["yay", "-S", "python-rich", "python-requests", "python-prompt-toolkit", "--noconfirm"], check=True)
+        except subprocess.CalledProcessError:
+            try:
+                subprocess.run(["paru", "-S", "python-rich", "python-requests", "python-prompt-toolkit", "--noconfirm"], check=True)
+            except subprocess.CalledProcessError:
+                print(' (!) Please Install "python-rich" or "python3-rich" and "python-requests" or "python3-requests"'); sys.exit()
 
 stop_event = threading.Event()
 def loading_animation(teks):
