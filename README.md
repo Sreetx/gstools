@@ -5,7 +5,6 @@ you can use python3 main.py --easy-mode with or without sudo. very good for begi
 
 ![GRUB Sreetx Tools]("https://github.com/Sreetx/gstools/blob/master/Cuplikan%20Layar%20Dari%202025-08-14%2017-02-20.png?raw=true")
 
-
 # Usage
 There are many easy parser commands that you can use and all of them are just use without thinking twice!
 
