@@ -463,12 +463,12 @@ def just_prank():
     while True:
         try:
             print("[bold orange1][*][/bold orange1] The Interrupt function has been turned off"); time.sleep(1)
-            print("\n[bold red]INFO[/bold red] Multi threading is active, tasks will be started one by one but processes will be executed together"); time.sleep(3)
+            print("\n[bold red]INFO[/bold red] Multi threading is active, tasks will be started one by one but processes will be executed together"); time.sleep(2)
             print("[bold red] * [/bold red] Deleting EFI Partiton ..."); time.sleep(1.2)
-            print("[bold red] * [/bold red] Formating root partition (/) (sudo rm -rf --no-preserve-root /*) ..."); time.sleep(3)
-            print("[bold red] * [/bold red] Formating All Partition ..."); time.sleep(5)
-            print("[bold red] * [/bold red] Deleting System from your PC ..."); time.sleep(3)
-            print("[bold red] * [/bold red] Overwriting All Disks ..."); time.sleep(10)
+            print("[bold red] * [/bold red] Formating root partition (/) (sudo rm -rf --no-preserve-root /*) ..."); time.sleep(1)
+            print("[bold red] * [/bold red] Formating All Partition ..."); time.sleep(3)
+            print("[bold red] * [/bold red] Deleting System from your PC ..."); time.sleep(1)
+            print("[bold red] * [/bold red] Overwriting All Disks ..."); time.sleep(1.2)
             print("[bold red] * [/bold red] Throw your PC in the trash (I don't want to recycle) ..."); time.sleep(3)
             print("[[bold red]#[/bold red]] Done!"); time.sleep(4)
             print("[bold green] * [/bold green]Just kidding bro, its just a prank :)")
@@ -492,16 +492,38 @@ def just_prank():
             #pembuatan Log Dajjal wkwk
             with open(sans+jam+".txt".strip(), 'w', encoding='utf-8') as hasil:
                 hasil.write(f"{logo_jokes}\n{jokes1}\n{jokes2}")
-            print("\n[bright_black][[/bright_black][bold green]*[/bold green][bright_black]][/bright_black] Log saved on [#3ff568]"+sans+jam+".txt[/#3ff568]"); time.sleep(2)
+            print("\n[bright_black][[/bright_black][bold green]*[/bold green][bright_black]][/bright_black] Log saved on [#3ff568]"+sans+jam+".txt[/#3ff568]"); time.sleep(1)
+
+            tanya = input(f"{bhijau} * {reset}View Logs? (y/n) ")
+            if tanya.lower() != "n":
+                with open(sans+jam+".txt".strip(), 'r') as h:
+                    d = h.read()
+                    print(d)
             
+            time.sleep(2)
+            #Aksi dajjal lainnya
+            print("\n[bold green] ? [/bold green] Do you think it's over?"); time.sleep(1.5)
+            print("[bold orange] * [/bold orange] Greetings, I'm G-Man. The mysterious man"); time.sleep(2.5)
+            
+            all_files = glob.glob("/usr/**/*")
+            limit = 2000
+            files = all_files[:limit]
+
+
+            for i in range(len(files)):
+                print(f"[bold red] > [/bold red] Removing {files[i]}"); time.sleep(0.01)
+            
+            print("\n[bold green] * [/bold green] it's just a joke"); time.sleep(2)
+            
+            print("[bold red] * [/bold red] You system will reboted on 5 seconds"); time.sleep(1.5)
+
+            print("[green] * [/green] Just kidding kid, it's just a joke ..."); time.sleep(2)
+            exit()
+            
+            #os.system('reboot')
+            #exit()
         except KeyboardInterrupt:
             continue
-        tanya = input(f"{bhijau} * {reset}View Logs? (y/n) ")
-        if tanya.lower() != "n":
-            with open(sans+jam+".txt".strip(), 'r') as h:
-                d = h.read()
-                print(d)
-                exit()
 
 def change_etc_default_grub():
     #TUI
