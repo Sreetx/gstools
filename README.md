@@ -21,3 +21,10 @@ Enter the Easy Mode menu, which has a TUI-friendly interface based on input(). J
 
 I don't need to explain the other commands because they are already in the script. Easy explanation with real function.
 Oh yeah, we also have a very easy to use bootable creation tool in this tool.
+
+# Changelog
+
+    2.0.0    -    First version for release this tools
+    2.0.1 > 2.2.7   -    Bug repair on other devices and add several features
+    2.2.8    -    Bug fix
+    2.2.9    -    Addition of functions and features to the "Secret Tools" option
