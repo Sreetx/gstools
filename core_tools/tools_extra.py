@@ -186,7 +186,9 @@ def burner_iso():
         external_part_detector()
 
         if pilihan.lower() == "2":
-            iso_file= input(f"{bputih}({reset}{borange}>{reset}{bputih}){reset} Select ISO File (path): ")
+            iso_file_for_prompt = ANSI(f"{bputih}({reset}{borange}>{reset}{bputih}){reset} Select ISO File (path): ")
+            iso_file = prompt(iso_file_for_prompt)
+            iso_file = iso_file.strip()
         else:
             iso_file = list_iso_file()
 
