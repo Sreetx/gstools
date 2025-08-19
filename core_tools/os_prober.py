@@ -120,6 +120,8 @@ def check_grub_prefix():
         print("[bold red]![/bold red] Detect GRUB Installed path [bright_black]([/bright_black][green]core_tools/configures.py[/green] [orange1]>[/orange1] [bold green]path[/bold green][bright_black])[/bright_black] Not found!")
     if not path or path == "Unknown":
         path = "Unknown"
+        prefix_final = "/boot/grub/grub.cfg"
+        return prefix_final
     else:
         prefix_awal = path.strip()
         prefix_nanti = os.path.join(prefix_awal, "grub.cfg")
@@ -139,7 +141,7 @@ def check_grub_prefix():
                 prefix_final = prefix1+prefix2
                 return prefix_final
         except Exception:
-            prefix_final = "Detect Failed! default grub configuration (/boot/grub/grub.cfg)"
+            prefix_final = "/boot/grub/grub.cfg"
             return prefix_final
 
 prefix_final = check_grub_prefix()
