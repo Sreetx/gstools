@@ -314,6 +314,8 @@ def os_prober(output_file=None):
     windows = "/boot/efi/EFI/Microsoft/Boot/bootmgfw.efi"
     if not os.path.exists(windows):
         windows = "/boot/EFI/Microsoft/Boot/bootmgfw.efi"
+        if not os.path.exists(windows):
+            pass
     else:
         pass
     if os.path.exists(windows):
@@ -541,8 +543,11 @@ menuentry '{distro}' --class {os_id} --class os --class gnu --class gnulinux $me
             size = esp.size
             uuid_efi = esp.uuid_efi
             
-        windows_boot_path = '/EFI/Microsoft/Boot/bootmgfw.efi'
-        windows_template = f"""
+            windows = "/boot/efi/EFI/Microsoft/Boot"
+            windows2 = "/boot/EFI/Microsoft/Boot"
+            if os.path.exists(windows) or os.path.exists(windows2):
+                windows_boot_path = '/EFI/Microsoft/Boot/bootmgfw.efi'
+                windows_template = f"""
 menuentry 'Windows' --class windows --class os $menuentry_id_option 'windows-{uuid_efi}' {{
     insmod part_gpt
     insmod fat
@@ -550,7 +555,6 @@ menuentry 'Windows' --class windows --class os $menuentry_id_option 'windows-{uu
     chainloader {windows_boot_path}
 
 }}"""
-
 
         tools = f"""
 menuentry 'Reboot' --class restart $menuentry_id_option 'reboot' {{
@@ -563,8 +567,11 @@ menuentry 'Power OFF' --class shutdown $menuentry_id_option 'shutdown' {{
         with open(pats, 'a') as ha:
             for e in entry:
                 ha.write(f"{e}\n\n")
-        with open(pats, 'a') as windows_entry:
-            windows_entry.write(f"{windows_template}\n\n")
+        if os.path.exists("/boot/EFI/Microsoft/Boot") or os.path.exists("/boot/efi/EFI/Microsoft/Boot"):
+            with open(pats, 'a') as windows_entry:
+                windows_entry.write(f"{windows_template}\n\n")
+        else:
+            pass
         with open(pats, 'a') as toolkit:
             toolkit.write(f"{tools}\n\n")
 
