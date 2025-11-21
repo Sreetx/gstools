@@ -25,18 +25,19 @@ try:
     from rich.table import Table
     from rich.panel import Panel
     from rich.text import Text
+    import prompt_toolkit
     import requests
 except ImportError:
     try:
-        subprocess.run(["sudo", "apt", "install", "python3-rich", "python3-requests", "python3-prompt-toolkit", "-y"], check=True)
+        subprocess.run(["sudo", "apt", "install", "python3-rich", "python3-requests", "python3-prompt-toolkit", "-y"], check=True);
     except subprocess.CalledProcessError:
         try:
-            subprocess.run(["yay", "-S", "python-rich", "python-requests", "python-prompt-toolkit", "--noconfirm"], check=True)
+            subprocess.run(["yay", "-S", "python-rich", "python-requests", "python-prompt_toolkit", "--noconfirm"], check=True)
         except subprocess.CalledProcessError:
             try:
-                subprocess.run(["paru", "-S", "python-rich", "python-requests", "python-prompt-toolkit", "--noconfirm"], check=True)
+                subprocess.run(["paru", "-S", "python-rich", "python-requests", "python-prompt_toolkit", "--noconfirm"], check=True)
             except subprocess.CalledProcessError:
-                print(' (!) Please Install "python-rich" or "python3-rich" and "python-requests" or "python3-requests"'); sys.exit()
+                print(' (!) Please Install "python-rich" or "python3-rich" and "python-requests" or "python3-requests" or "python-prompt-toolkit" or "python-prompt-toolkit" (arch)'); sys.exit()
 
 stop_event = threading.Event()
 def loading_animation(teks):
@@ -315,28 +316,6 @@ if update_grubs:
     try:
         from core_tools.configures import update_grub_config
         update_grub_config(reconf=reconf)
-        sys.exit()
-    except ImportError:
-        print(bmerah+" ! "+reset+"GRUB Config Updater (core_tools/configures > update_grub_config) Not found!"); sys.exit()
-    except KeyboardInterrupt:
-        print(f"{bmerah}*{reset} Exit, Have a nice day!");sys.exit()
-
-if reconf:
-    if dclr:
-        pass
-    else:
-        os.system("cls || clear")
-
-    banner()
-    def root_id():
-        return os.getuid() == 0
-    if root_id():
-        pass
-    else:
-        print(bmerah+" ! "+reset+"Please run this script with SUDO/SU"+reset);sys.exit()
-    try:
-        from core_tools.configures import update_grub_config
-        update_grub_config(reconf=True)
         sys.exit()
     except ImportError:
         print(bmerah+" ! "+reset+"GRUB Config Updater (core_tools/configures > update_grub_config) Not found!"); sys.exit()
