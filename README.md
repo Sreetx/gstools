@@ -28,3 +28,4 @@ Oh yeah, we also have a very easy to use bootable creation tool in this tool.
     2.1.7    -    Bug repair on other devices and add several features
     2.2.8    -    Bug repair and additional features to the "Check OS" option
     2.2.9    -    Addition of functions and features to the "Secret Tools" option
+    2.2.13   -    Fixing Bug...
